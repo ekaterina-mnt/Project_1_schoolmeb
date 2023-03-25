@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('subject');
             $table->string('exam');
             $table->integer('age');
+            $table->string('photo');
             $table->text('about');
             $table->timestamps();
         });

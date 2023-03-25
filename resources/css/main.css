@@ -16,9 +16,8 @@ body {
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template-rows: min-content auto min-content;
+    grid-auto-rows: min-content min-content auto min-content;
     min-height: 100%;
-    display: grid;
 }
 
 /* ХЭДЕР */
@@ -251,6 +250,7 @@ img.courses-banner {
     margin: 0 auto;
     width: 1200px;
     margin-bottom: 20px;
+    height: min-content;
 }
 
 .leftbar-subjects-list {
@@ -261,19 +261,28 @@ img.courses-banner {
 
 /* ПРЕПОДАВАТЕЛИ */
 
-.teachers-wrapper {
-    display: flex;
-    flex-wrap: wrap;
+.teachers-wrap {
+    display: grid;
+    grid-template-columns: 23% 23% 23% 23%;
+    justify-content: space-between;
+    margin: 0 auto;
 }
 
 .about-teacher {
-    /* background-color: #FFFFFF;
+    background-color: #FFFFFF;
     margin-bottom: 30px;
     border-radius: 10px;
-    height: 140px;
-    width: 20%;
-    border: 1px solid black; */
+    height: 300px;
+}
 
+.about-teacher img {
+    width: 100%;
+    height: 60%;
+    border-radius: 10px 10px 0 0;
+}
+
+.about-teacher p {
+    padding: 0 10px 10px 10px;
 }
 
 

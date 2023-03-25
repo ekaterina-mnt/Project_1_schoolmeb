@@ -17,8 +17,15 @@ class TeacherController extends Controller
         $teachers = Teacher::all()
             ->sortBy('name');
 
+        $subjects = [
+            'все', 'биология', 'базовая математика', 'русский язык',
+            'английский язык', 'химия', 'литература', 'история', 'физика',
+            'информатика', 'профильная математика', 'география', 'обществознание'
+        ];
+
         return view('teachers.index', [
             'teachers' => $teachers,
+            'subjects' => $subjects,
             'leftbar' => 'off',
         ]);
     }

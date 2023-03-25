@@ -2,10 +2,9 @@
     <a href="/">
         мебиум
     </a>
-    <form action="tel:88009001020">
-        <button class="top_menu">
-            8(800)900-10-20
-        </button>
+    <a href="tel:88009001020">
+        8(800)900-10-20
+    </a>
     </form>
     <form action="#">
         <button class="call_me">
