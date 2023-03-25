@@ -10,17 +10,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>@yield('title')</title>
 </head>
-<header class="header">
-    @include('layout/header')
-</header>
+
 
 <body>
-    <div class="content">
-        @yield('content')
+    <header>
+        @include('layout/header')
+    </header>
+    <div class="sub-header">
+        @yield('sub-header')
     </div>
+    <div class="wrapper">
+        @if ($leftbar == 'on')
+        <aside class="leftbar">
+            @yield('leftbar')
+        </aside>
+        @endif
+        <main class="content">
+            @yield('content')
+        </main>
+    </div>
+    <footer class="footer">
+        <div class="center">
+            @include('layout/footer')
+        </div>
+    </footer>
 </body>
-<footer class="footer">
-    @include('layout/footer')
-</footer>
 
 </html>

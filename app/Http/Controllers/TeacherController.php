@@ -17,7 +17,10 @@ class TeacherController extends Controller
         $teachers = Teacher::all()
             ->sortBy('name');
 
-        return view('teachers.index', ['teachers' => $teachers]);
+        return view('teachers.index', [
+            'teachers' => $teachers,
+            'leftbar' => 'off',
+        ]);
     }
 
     /**

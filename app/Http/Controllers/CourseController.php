@@ -15,8 +15,17 @@ class CourseController extends Controller
     public function index()
     {
         $courses = Course::all();
+        $subjects = [
+            'все предметы', 'биология', 'базовая математика', 'русский язык',
+            'английский язык', 'химия', 'литература', 'история', 'физика',
+            'информатика', 'профильная математика', 'география', 'обществознание'
+        ];
 
-        return view('courses.index', ['courses' => $courses]);
+        return view('courses.index', [
+            'courses' => $courses,
+            'subjects' => $subjects,
+            'leftbar' => 'on',
+        ]);
     }
 
     /**
