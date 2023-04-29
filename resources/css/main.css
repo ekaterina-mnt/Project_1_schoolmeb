@@ -193,7 +193,7 @@ footer .gray {
     border-radius: 50px 50px 50px 50px;
 }
 
-/* КОНТЕНТ И САЙДЕР */
+/* КОНТЕНТ И САЙД-БАР */
 
 .wrapper {
     margin: 0 auto;
@@ -208,6 +208,13 @@ aside {
 
 main {
     width: 100%;
+}
+
+/* ГЛАВНАЯ */
+
+main.content {
+    text-align: center;
+    margin: 10px;
 }
 
 /* КУРСЫ */

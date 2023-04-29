@@ -14,7 +14,7 @@ class OpenVebinarController extends Controller
      */
     public function index()
     {
-        //
+        return view('openvebinars.index');
     }
 
     /**
