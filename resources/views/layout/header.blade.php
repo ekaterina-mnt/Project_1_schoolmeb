@@ -1,5 +1,5 @@
 <nav>
-    <a href="/">
+    <a href="{{ url('/') }}">
         мебиум
     </a>
     <a href="tel:88009001020">
@@ -11,13 +11,13 @@
             перезвоните мне
         </button>
     </form>
-    <a class="left-gap" href="/courses">
+    <a class="left-gap" href="{{ url('/courses') }}">
         все курсы
     </a>
-    <a href="/teachers">
+    <a href="{{ url('/teachers') }}">
         преподаватели
     </a>
-    <a href="openvebinars">
+    <a href="{{ url('/openvebinars') }}">
         открытые вебинары
     </a>
     <form action="#">

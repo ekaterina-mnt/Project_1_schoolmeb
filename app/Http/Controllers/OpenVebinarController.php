@@ -45,9 +45,10 @@ class OpenVebinarController extends Controller
      * @param  \App\Models\OpenVebinar  $openVebinar
      * @return \Illuminate\Http\Response
      */
-    public function show(OpenVebinar $openVebinar)
+    public function show(OpenVebinar $openVebinar, $id)
     {
-        //
+        $vebinar = OpenVebinar::where('id', $id)->first();
+        return view('openvebinars.show', ['vebinar' => $vebinar]);
     }
 
     /**

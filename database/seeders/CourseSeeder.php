@@ -15,10 +15,5 @@ class CourseSeeder extends Seeder
     public function run()
     {
         \App\Models\Course::factory(10)->create();
-        
-        // математика
-        // DB::table('courses')->insert([
-
-        // ])
     }
 }

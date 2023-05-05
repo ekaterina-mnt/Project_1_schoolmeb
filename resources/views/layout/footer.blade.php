@@ -15,17 +15,17 @@
             </h4>
         </li>
         <li>
-            <a href="/">
+            <a href="{{ url('/') }}">
                 главная
             </a>
         </li>
         <li>
-            <a href="/courses">
+            <a href="{{ url('/courses') }}">
                 все курсы
             </a>
         </li>
         <li>
-            <a href="/teachers">
+            <a href="{{ url('/teachers') }}">
                 преподаватели
             </a>
         </li>

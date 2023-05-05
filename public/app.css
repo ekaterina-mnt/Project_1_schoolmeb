@@ -276,7 +276,7 @@ img.courses-banner {
 
 .teachers-wrap {
     display: grid;
-    grid-template-columns: 23% 23% 23% 23%;
+    grid-template-columns: 22% 22% 22% 22%;
     justify-content: space-between;
     margin: 0 auto;
 }
@@ -298,4 +298,34 @@ img.courses-banner {
     padding: 0 10px 10px 10px;
 }
 
+/* ОТКРЫТЫЕ ВЕБИНАРЫ */
 
+.vebinars-wrap {
+    display: grid;
+    grid-template-columns: 23% 23% 23% 23%;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.vebinars-wrap a {
+    text-decoration: none;
+    color:black;
+}
+
+.about-vebinar {
+    background-color: #FFFFFF;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    height: 200px;
+}
+
+
+.about-vebinar img {
+    width: 100%;
+    height: 80%;
+    border-radius: 10px 10px 0 0;
+}
+
+.about-vebinar p {
+    margin: 5px 10px 10px 10px;
+}

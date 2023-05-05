@@ -4,9 +4,23 @@
 Открытые вебинары
 @endsection
 
-@section('content')
-@foreach ($vebinars as $vebinar)
-<iframe width="560" height="315" src="{{ $vebinar->video_src }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+@section('sub-header')
+<h1>открытые вебинары</h1>
+@endsection
 
-@endforeach
+@section('content')
+
+<div class="vebinars-wrap">
+    @foreach ($vebinars as $vebinar)
+    <a href="openvebinars/{{ $vebinar->id }}">
+        <div class="about-vebinar">
+            <img height=52px width=86px src="{{ $vebinar->cover }}">
+            <p>
+                {{ $vebinar->title }}
+            </p>
+        </div>
+    </a>
+    @endforeach
+</div>
+
 @endsection

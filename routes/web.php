@@ -25,3 +25,5 @@ Route::get('/teachers', [TeacherController::class, 'index']);
 Route::get('/courses', [CourseController::class, 'index']);
 
 Route::get('/openvebinars', [OpenVebinarController::class, 'index']);
+
+Route::get('/openvebinars/{id}', [OpenVebinarController::class, 'show']);

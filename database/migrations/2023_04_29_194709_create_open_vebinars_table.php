@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('open_vebinars', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('cover');
             $table->string('video_src');
             $table->timestamps();
         });
