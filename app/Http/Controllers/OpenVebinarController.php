@@ -14,7 +14,8 @@ class OpenVebinarController extends Controller
      */
     public function index()
     {
-        return view('openvebinars.index');
+        $vebinars = OpenVebinar::all();
+        return view('openvebinars.index', ['vebinars' => $vebinars]);
     }
 
     /**

@@ -32,7 +32,7 @@ header {
 nav {
     margin: 0 auto;
     width: 1200px;
-    padding: 10px 0 10px 0;
+    padding: 10px 30px 10px 30px;
     flex: 0 0 auto;
     display: flex;
     justify-content: space-between;
@@ -124,6 +124,7 @@ footer .center {
     margin: 0 auto;
     width: 1200px;
     margin-bottom: 40px;
+    padding: 0 30px 0 30px;
 }
 
 footer {
@@ -208,13 +209,13 @@ aside {
 
 main {
     width: 100%;
+    padding: 0 30px 0 30px;
 }
 
 /* ГЛАВНАЯ */
 
 main.content {
     text-align: center;
-    margin: 10px;
 }
 
 /* КУРСЫ */
@@ -258,6 +259,11 @@ img.courses-banner {
     width: 1200px;
     margin-bottom: 20px;
     height: min-content;
+    text-align: center;
+}
+
+.sub-header button {
+    margin-top: 10px;
 }
 
 .leftbar-subjects-list {

@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('openvebinars', function (Blueprint $table) {
+        Schema::create('open_vebinars', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->string('video_src');
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('openvebinars');
+        Schema::dropIfExists('open_vebinars');
     }
 };

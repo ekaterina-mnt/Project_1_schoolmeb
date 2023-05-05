@@ -8,13 +8,13 @@
 
 <div class="row">
 
-    <h1>все курсы</h1>
+        <h1>все курсы</h1>
 
-    <form action="#">
-        <button class="cart">
-            корзина
-        </button>
-    </form>
+        <form action="#">
+            <button class="cart">
+                корзина
+            </button>
+        </form>
 
 </div>
 
@@ -69,7 +69,7 @@
 
 @section('content')
 
-<img class="courses-banner" src="{{ '/storage/app/public/courses/banner.png' }}">
+<img class="courses-banner" src="{{ '/storage/courses/banner.png' }}">
 
 @foreach($courses as $course)
 <div class="course-wrap">

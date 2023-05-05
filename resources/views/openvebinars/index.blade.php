@@ -1,9 +1,12 @@
-@extends('layout.layout') 
+@extends('layout.layout')
 
-@section('title') 
+@section('title')
 Открытые вебинары
 @endsection
 
 @section('content')
-<iframe width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+@foreach ($vebinars as $vebinar)
+<iframe width="560" height="315" src="{{ $vebinar->video_src }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+@endforeach
 @endsection
