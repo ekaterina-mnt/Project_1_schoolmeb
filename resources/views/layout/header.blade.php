@@ -20,11 +20,23 @@
     <a href="{{ url('/openvebinars') }}">
         открытые вебинары
     </a>
-    <form action="#">
+
+    @auth("web")
+    <form action="{{ route('logout') }}">
+        <button class="logout">
+            выйти
+        </button>
+    </form>
+    @endauth
+
+    @guest("web")
+    <form action="{{ route('login') }}">
         <button class="login">
             войти
         </button>
     </form>
+    @endguest
+    
     <form action="#">
         <button class="try">
             пощупать курс

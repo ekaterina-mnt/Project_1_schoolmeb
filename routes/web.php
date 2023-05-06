@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\OpenVebinarController;
 use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,12 +19,25 @@ use App\Http\Controllers\TeacherController;
 
 Route::get('/', function () {
     return view('welcome');
+})->name('welcome');;
+
+Route::get('/teachers', [TeacherController::class, 'index'])->name('teachers.show');
+
+Route::get('/courses', [CourseController::class, 'index'])->name('courses.show');
+
+Route::get('/openvebinars', [OpenVebinarController::class, 'index'])->name('openvebinars.index');
+
+Route::get('/openvebinars/{id}', [OpenVebinarController::class, 'show'])->name('openvebinars.show');
+
+Route::middleware("auth")->group(function () {
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
-Route::get('/teachers', [TeacherController::class, 'index']);
+Route::middleware("guest")->group(function () {
+    Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+    Route::post('/login_process', [AuthController::class, 'login_process'])->name('login_process');
+    
+    Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
+    Route::post('/register_process', [AuthController::class, 'register_process'])->name('register_process');
+});
 
-Route::get('/courses', [CourseController::class, 'index']);
-
-Route::get('/openvebinars', [OpenVebinarController::class, 'index']);
-
-Route::get('/openvebinars/{id}', [OpenVebinarController::class, 'show']);
