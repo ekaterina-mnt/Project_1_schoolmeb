@@ -342,8 +342,8 @@ img.courses-banner {
     display: inline-block;
 }
 
-iframe,
-img {
+.video iframe,
+.video img {
     width: 100%;
     height: 100%;
     display: block;

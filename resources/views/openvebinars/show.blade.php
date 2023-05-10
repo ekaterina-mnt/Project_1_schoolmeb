@@ -7,7 +7,6 @@
 @section('content')
 
 <div class="video" data-video-src="{{ $vebinar->video_src }}" data-img-src="{{ $vebinar->img_src }}">
-  <!-- <img src=""> -->
   <button class="video-play btn-reset">
     <svg width="68" height="48" viewBox="0 0 68 48">
       <path class="video-play-shape"
