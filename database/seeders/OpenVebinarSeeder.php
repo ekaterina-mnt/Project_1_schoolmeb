@@ -35,10 +35,15 @@ class OpenVebinarSeeder extends Seeder
         ];
 
         foreach ($videos as $i => $video) {
+            $el = explode('/', $video);
+            $youtube_id = $el[4];
+            $img_src = "https://i.ytimg.com/vi/" . $youtube_id . "/maxresdefault.jpg";
+
             DB::table('open_vebinars')->insert([
                 'title' => Str::random(10),
                 'cover' => '/storage/open_vebinars/open_vebinar_cover.jpg',
                 'video_src' => $video,
+                'img_src' => $img_src,
             ]);
         }
     }

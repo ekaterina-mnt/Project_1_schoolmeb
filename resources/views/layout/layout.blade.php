@@ -39,6 +39,8 @@
             @include('layout/footer')
         </div>
     </footer>
+
+    <script src="app.js"></script>
 </body>
 
 </html>
