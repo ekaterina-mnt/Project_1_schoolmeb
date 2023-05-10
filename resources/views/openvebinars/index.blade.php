@@ -14,7 +14,7 @@
     @foreach ($vebinars as $vebinar)
     <a href="openvebinars/{{ $vebinar->id }}">
         <div class="about-vebinar">
-            <img height=52px width=86px src="{{ $vebinar->cover }}">
+            <img height=52px width=86px src="{{ $vebinar->img_src }}">
             <p>
                 {{ $vebinar->title }}
             </p>
