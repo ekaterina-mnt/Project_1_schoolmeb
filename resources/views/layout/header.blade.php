@@ -7,7 +7,7 @@
     </a>
     </form>
     <form action="#">
-        <button class="call_me">
+        <button class="border call_me">
             перезвоните мне
         </button>
     </form>
@@ -23,7 +23,7 @@
 
     @auth("web")
     <form action="{{ route('logout') }}">
-        <button class="logout">
+        <button class="border logout">
             выйти
         </button>
     </form>
@@ -31,14 +31,14 @@
 
     @guest("web")
     <form action="{{ route('login') }}">
-        <button class="login">
+        <button  class="border login">
             войти
         </button>
     </form>
     @endguest
     
     <form action="#">
-        <button class="try">
+        <button class="border try">
             пощупать курс
         </button>
     </form>

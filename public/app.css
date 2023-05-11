@@ -66,7 +66,7 @@ header li {
 
 /* КНОПКИ */
 
-button {
+button.border {
     font: bold 14px black;
     font-family: monospace;
     cursor: pointer;

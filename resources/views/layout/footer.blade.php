@@ -96,7 +96,7 @@
         </li>
         <li>
             <form action="#">
-                <button class="call_me">
+                <button class="border call_me">
                     перезвоните мне
                 </button>
             </form>
