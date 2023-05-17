@@ -31,6 +31,7 @@ Route::get('/openvebinars/{id}', [OpenVebinarController::class, 'show'])->name('
 
 Route::middleware("auth")->group(function () {
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::post('/openvebinars/comment/{id}', [OpenVebinarController::class, 'comment'])->name('comment');
 });
 
 Route::middleware("guest")->group(function () {

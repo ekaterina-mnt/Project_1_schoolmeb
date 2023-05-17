@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\OpenVebinar;
 use Illuminate\Http\Request;
+use App\Http\Requests\CommentForm;
+use App\Models\Comment;
 
 class OpenVebinarController extends Controller
 {
@@ -48,7 +50,11 @@ class OpenVebinarController extends Controller
     public function show(OpenVebinar $openVebinar, $id)
     {
         $vebinar = OpenVebinar::where('id', $id)->first();
-        return view('openvebinars.show', ['vebinar' => $vebinar]);
+        $comments = Comment::where('open_vebinar_id', $id)->get();
+        return view('openvebinars.show', [
+            'vebinar' => $vebinar,
+            'comments' => $comments,
+    ]);
     }
 
     /**
@@ -83,5 +89,13 @@ class OpenVebinarController extends Controller
     public function destroy(OpenVebinar $openVebinar)
     {
         //
+    }
+
+    public function comment($id, CommentForm $request) {
+        $vebinar = OpenVebinar::where('id', $id)->first();
+                
+        $vebinar->comments()->create($request->validated());
+
+        return redirect(route('openvebinars.show', ['id' => $id]));
     }
 }
