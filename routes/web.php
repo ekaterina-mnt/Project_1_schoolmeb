@@ -5,6 +5,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\OpenVebinarController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,3 +43,5 @@ Route::middleware("guest")->group(function () {
     Route::post('/register_process', [AuthController::class, 'register_process'])->name('register_process');
 });
 
+Route::post('/contact_form_process', [IndexController::class, 'contact_form_process'])->name('contact_form_process');
+Route::get('/contacts', [IndexController::class, 'showContactForm'])->name('contact_form');
