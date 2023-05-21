@@ -17,7 +17,7 @@
         </option>
         @endforeach
     </select>
-    <input type="submit" value="Найти">
+    <input class="filter-find" type="submit" value="Найти">
 </form>
 
 @endsection

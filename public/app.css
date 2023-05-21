@@ -106,11 +106,16 @@ button.cart {
     background-color: black;
 }
 
-button.leftbar-subject {
-    background-color: white;
-    padding: 5px;
-    border: 2px solid #C5C7CE;
-    margin: 0 10px 10px 0;
+input.filter-find {
+    font: bold 14px black;
+    font-family: monospace;
+    cursor: pointer;
+    border-radius: 10px;
+    text-align: left;
+    padding: 10px 15px 10px 15px;
+    color: white;
+    border: 2px solid black;
+    background-color: black;
 }
 
 /* ФУТЕР */
@@ -219,6 +224,10 @@ main.content {
     text-align: center;
 }
 
+.left-align {
+    text-align: left;
+}
+
 /* КУРСЫ */
 
 .course-wrap {
@@ -267,10 +276,39 @@ img.courses-banner {
     margin-top: 10px;
 }
 
+.leftbar-form-bottom-margin {
+    margin-bottom: 20px;
+}
+
 .leftbar-subjects-list {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+}
+
+.leftbar-subject {
+    margin: 0 20px 20px 0;
+}
+
+.leftbar-subject input[type=radio] {
+    display: none;
+}
+
+.leftbar-subject label {
+    background-color: white;
+    padding: 5px;
+    border: 2px solid #C5C7CE;
+    border-radius: 10px;
+}
+
+.leftbar-subject input[type=radio]:checked+label {
+    background-color: black;
+    border: 2px solid black;
+    color: #FFFFFF;
+}
+
+.courses-found {
+    font-size: 1.1em;
 }
 
 /* ПРЕПОДАВАТЕЛИ */

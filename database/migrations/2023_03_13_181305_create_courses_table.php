@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('subject');
             $table->integer('price');
-            $table->string('exam');
+            $table->string('exam_type');
             $table->text('description');
             $table->string('teacher_id');
             $table->string('num_students');

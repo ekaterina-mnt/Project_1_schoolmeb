@@ -25,7 +25,8 @@ Route::get('/', function () {
 Route::get('/teachers/{subject?}', [TeacherController::class, 'index'])->name('teachers.index');
 Route::post('/teachers_form_process', [TeacherController::class, 'teachers_form_process'])->name('teachers_form_process');
 
-Route::get('/courses', [CourseController::class, 'index'])->name('courses.index');
+Route::get('/courses/{exam_type?}/{subject?}', [CourseController::class, 'index'])->name('courses.index');
+Route::post('/courses_form_process', [CourseController::class, 'courses_form_process'])->name('courses_form_process');
 
 Route::get('/openvebinars', [OpenVebinarController::class, 'index'])->name('openvebinars.index');
 
