@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Teacher;
 use Illuminate\Http\Request;
+use App\Http\Requests\TeachersFormRequest;
 
 class TeacherController extends Controller
 {
@@ -12,10 +13,16 @@ class TeacherController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($subject = 'все')
     {
-        $teachers = Teacher::all()
-            ->sortBy('name');
+        if ($subject == 'все') {
+            $teachers = Teacher::all()
+                ->sortBy('name');
+        } else {
+            $teachers = Teacher::all()
+            ->where('subject', $subject)
+                ->sortBy('name');
+        }
 
         $subjects = [
             'все', 'биология', 'базовая математика', 'русский язык',
@@ -26,6 +33,7 @@ class TeacherController extends Controller
         return view('teachers.index', [
             'teachers' => $teachers,
             'subjects' => $subjects,
+            'selected_subject' => $subject,
             'leftbar' => 'off',
         ]);
     }
@@ -94,5 +102,13 @@ class TeacherController extends Controller
     public function destroy(Teacher $teacher)
     {
         //
+    }
+
+
+    public function teachers_form_process(TeachersFormRequest $request)
+    {
+        $subject = $request->validated()['subject'];
+
+        return redirect(route('teachers.index', $subject));
     }
 }

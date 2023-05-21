@@ -22,9 +22,10 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');;
 
-Route::get('/teachers', [TeacherController::class, 'index'])->name('teachers.show');
+Route::get('/teachers/{subject?}', [TeacherController::class, 'index'])->name('teachers.index');
+Route::post('/teachers_form_process', [TeacherController::class, 'teachers_form_process'])->name('teachers_form_process');
 
-Route::get('/courses', [CourseController::class, 'index'])->name('courses.show');
+Route::get('/courses', [CourseController::class, 'index'])->name('courses.index');
 
 Route::get('/openvebinars', [OpenVebinarController::class, 'index'])->name('openvebinars.index');
 
