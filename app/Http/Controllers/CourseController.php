@@ -16,13 +16,13 @@ class CourseController extends Controller
     public function index($exam_type = 'все', $subject = 'все предметы')
     {
         if (($exam_type == 'все') and ($subject == 'все предметы')) {
-            $courses = Course::all();
+            $courses = Course::paginate(5);
         } elseif ($exam_type == 'все') {
-            $courses = Course::where('subject', $subject)->get();
+            $courses = Course::where('subject', $subject)->paginate(5);
         } elseif ($subject == 'все предметы') {
-            $courses = Course::where('exam_type', $exam_type)->get();
+            $courses = Course::where('exam_type', $exam_type)->paginate(5);
         } else {
-            $courses = Course::where(['exam_type' => $exam_type, 'subject' => $subject])->get();
+            $courses = Course::where(['exam_type' => $exam_type, 'subject' => $subject])->paginate(5);
         }
 
         $subjects = [

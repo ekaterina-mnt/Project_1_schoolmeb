@@ -307,8 +307,13 @@ img.courses-banner {
     color: #FFFFFF;
 }
 
-.courses-found {
-    font-size: 1.1em;
+.course-paginator a {
+    text-decoration: none;
+    color: #787D8B;;
+}
+
+.course-paginator a.current {
+    color: black
 }
 
 /* ПРЕПОДАВАТЕЛИ */

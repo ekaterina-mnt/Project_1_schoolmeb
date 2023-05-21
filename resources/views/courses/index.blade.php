@@ -61,8 +61,6 @@
 
 <img class="courses-banner" src="{{ '/storage/courses/banner.png' }}">
 
-<p class="left-align courses-found">Всего: {{ $sum }}</p>
-
 @if ($courses->isEmpty())
 
 <p>К сожалению, на данный момент в нашей школе нет курсов по данному предмету.</p>
@@ -78,6 +76,18 @@
     </p>
 </div>
 @endforeach
+
+
+<div class="course-paginator">
+
+    <p>Всего найдено: {{ $courses->total() }}</p>
+
+    @if ($courses->hasMorePages())
+        @for ($i=1; $i<=$courses->lastPage(); $i++)
+            <a href="{{ $courses->url($i) }}" @if ($i==$courses->currentPage()) class="current" @endif>{{ $i }}</a>
+        @endfor
+    @endif
+</div>
 
 @endif
 
