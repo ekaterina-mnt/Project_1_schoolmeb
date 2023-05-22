@@ -113,7 +113,7 @@ class CourseController extends Controller
     {
         $exam_type = $request->validated()['exam_type'];
         $subject = $request['subject'];
-        
-        return redirect(route('courses.index', ['exam_type' => $exam_type, 'subject' =>$subject]));
+
+        return redirect(route('courses.index', ['exam_type' => $exam_type, 'subject' => $subject]));
     }
 }

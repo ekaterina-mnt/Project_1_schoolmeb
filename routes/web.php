@@ -6,6 +6,7 @@ use App\Http\Controllers\OpenVebinarController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,8 @@ Route::get('/openvebinars/{id}', [OpenVebinarController::class, 'show'])->name('
 Route::middleware("auth")->group(function () {
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::post('/openvebinars/comment/{id}', [OpenVebinarController::class, 'comment'])->name('comment');
+
+    Route::get('/cart', [CartController::class, 'show_cart'])->name('show_cart');
 });
 
 Route::middleware("guest")->group(function () {

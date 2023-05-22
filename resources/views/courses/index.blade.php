@@ -10,7 +10,7 @@
 
     <h1>все курсы</h1>
 
-    <form action="#">
+    <form action="{{ route('show_cart') }}">
         <button class="border cart">
             корзина
         </button>
