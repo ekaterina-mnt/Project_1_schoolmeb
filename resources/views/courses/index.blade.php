@@ -73,6 +73,10 @@
         {{ $course->title }}<br>
         {{ $course->subject }}<br>
         {{ $course->exam_type }}
+        <br>
+    <form action="{{ route('add_to_cart', $course->id) }}">
+        <button type="submit">Добавить в корзину</button>
+    </form>
     </p>
 </div>
 @endforeach
@@ -83,10 +87,10 @@
     <p>Всего найдено: {{ $courses->total() }}</p>
 
     @if ($courses->hasMorePages())
-        @for ($i=1; $i<=$courses->lastPage(); $i++)
-            <a href="{{ $courses->url($i) }}" @if ($i==$courses->currentPage()) class="current" @endif>{{ $i }}</a>
+    @for ($i=1; $i<=$courses->lastPage(); $i++)
+        <a href="{{ $courses->url($i) }}" @if ($i==$courses->currentPage()) class="current" @endif>{{ $i }}</a>
         @endfor
-    @endif
+        @endif
 </div>
 
 @endif

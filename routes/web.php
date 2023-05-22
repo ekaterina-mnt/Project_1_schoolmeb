@@ -38,6 +38,7 @@ Route::middleware("auth")->group(function () {
     Route::post('/openvebinars/comment/{id}', [OpenVebinarController::class, 'comment'])->name('comment');
 
     Route::get('/cart', [CartController::class, 'show_cart'])->name('show_cart');
+    Route::get('/add_to_cart/{id}', [CartController::class, 'add_to_cart'])->name('add_to_cart');
 });
 
 Route::middleware("guest")->group(function () {
