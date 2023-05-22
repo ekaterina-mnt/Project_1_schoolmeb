@@ -43,6 +43,9 @@ Route::middleware("guest")->group(function () {
     
     Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
     Route::post('/register_process', [AuthController::class, 'register_process'])->name('register_process');
+
+    Route::get('/forgot', [AuthController::class, 'showForgotForm'])->name('forgot');
+    Route::post('/forgot_process', [AuthController::class, 'forgot_process'])->name('forgot_process');
 });
 
 Route::post('/contact_form_process', [IndexController::class, 'contact_form_process'])->name('contact_form_process');
