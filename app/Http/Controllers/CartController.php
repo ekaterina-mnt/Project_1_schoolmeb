@@ -22,9 +22,9 @@ class CartController extends Controller
                 'course_id' => $course_id,
             ]);
 
-            return redirect(route('show_cart'));
+            return redirect(route('show_cart'))->with('flash', 'Курс успешно добавлен в корзину!');
         }
 
-        return redirect()->back();
+        return redirect()->back()->with('flash', 'Данный курс уже есть в вашей корзине.');
     }
 }

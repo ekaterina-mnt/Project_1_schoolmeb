@@ -95,7 +95,7 @@
             </a>
         </li>
         <li>
-            <form action="#">
+            <form action="{{ route('contact_form') }}">
                 <button class="border call_me">
                     перезвоните мне
                 </button>

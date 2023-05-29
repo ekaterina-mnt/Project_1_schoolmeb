@@ -48,6 +48,7 @@ class ContactForm extends Mailable
             view: 'emails.contact_form',
             with: [
                 'email' => $this->formData['email'],
+                'phone' => $this->formData['phone'],
                 'text' => $this->formData['text'],
             ]
         );

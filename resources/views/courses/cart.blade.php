@@ -4,7 +4,11 @@
 
 @section('content')
 
-<h1>корзина</h1>
+@section('sub-header')
+<div class="sub-header">
+    <h1>корзина</h1>
+</div>
+@endsection
 
 @if ($courses->isEmpty())
 <p>Вы еще не добавили ничего в корзину.</p>

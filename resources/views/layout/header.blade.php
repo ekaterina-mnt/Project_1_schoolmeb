@@ -6,7 +6,7 @@
         8(800)900-10-20
     </a>
     </form>
-    <form action="#">
+    <form action="{{ route('contact_form') }}">
         <button class="border call_me">
             перезвоните мне
         </button>
