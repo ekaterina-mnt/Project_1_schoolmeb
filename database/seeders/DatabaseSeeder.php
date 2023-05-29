@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             CourseSeeder::class,
             TeacherSeeder::class,
             OpenVebinarSeeder::class,
+            AdminUserSeeder::class,
         ]);
     }
 }
