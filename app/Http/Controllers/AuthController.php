@@ -82,5 +82,7 @@ class AuthController extends Controller
         $user->save();
 
         Mail::to($data['email'])->send(new ForgotPassword($new_password));
+
+        return redirect(route('login'))->with('flash', 'Мы отправили новый пароль вам на почту!');
     }
 }
