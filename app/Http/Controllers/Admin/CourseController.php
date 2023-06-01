@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Course;
+use App\Models\Teacher;
+use App\Http\Requests\AddCourseFormRequest;
 
 class CourseController extends Controller
 {
@@ -14,7 +17,10 @@ class CourseController extends Controller
      */
     public function index()
     {
-        //
+        $courses = Course::paginate(10);
+        return view('admin.courses.index')->with([
+            'courses' => $courses,
+        ]);
     }
 
     /**
@@ -24,7 +30,18 @@ class CourseController extends Controller
      */
     public function create()
     {
-        //
+        $subjects = [
+            'биология', 'базовая математика', 'русский язык',
+            'английский язык', 'химия', 'литература', 'история', 'физика',
+            'информатика', 'профильная математика', 'география', 'обществознание'
+        ];
+
+        $teachers = Teacher::all();
+
+        return view('admin.courses.create')->with([
+            'subjects' => $subjects,
+            'teachers' => $teachers,
+        ]);
     }
 
     /**
@@ -33,9 +50,10 @@ class CourseController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AddCourseFormRequest $request)
     {
-        //
+        Course::create($request->validated());
+        return redirect(route('admin.courses.index'))->with('flash', "Вы успешно добавили новый курс!");
     }
 
     /**
@@ -57,7 +75,20 @@ class CourseController extends Controller
      */
     public function edit($id)
     {
-        //
+        $course = Course::findOrFail($id);
+        $subjects = [
+            'биология', 'базовая математика', 'русский язык',
+            'английский язык', 'химия', 'литература', 'история', 'физика',
+            'информатика', 'профильная математика', 'география', 'обществознание'
+        ];
+
+        $teachers = Teacher::all();
+
+        return view('admin.courses.edit', [
+            'course' => $course,
+            'subjects' => $subjects,
+            'teachers' => $teachers,
+        ]);
     }
 
     /**
@@ -67,9 +98,12 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(AddCourseFormRequest $request, $id)
     {
-        //
+        $course = Course::findOrFail($id);
+        $course->update($request->validated());
+
+        return redirect(route('admin.courses.index'))->with('flash', 'Изменения были успешно добавлены!');
     }
 
     /**
@@ -80,6 +114,7 @@ class CourseController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Course::destroy($id);
+        return redirect(route('admin.courses.index'))->with('flash', 'Вы успешно удалили курс!');
     }
 }

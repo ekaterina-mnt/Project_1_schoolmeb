@@ -14,11 +14,33 @@
 
 <body>
     <header>
-        @include('layout/header')
+        <nav>
+        @auth("admin")
+        <form action="{{ route('admin.courses.index') }}">
+            <button class="border logout">
+                курсы
+            </button>
+        </form>
+        @endauth
+
+        @auth("admin")
+        <form action="{{ route('admin.logout') }}">
+            <button class="border logout">
+                выйти
+            </button>
+        </form>
+        @endauth
+        </nav>
     </header>
-    <div class="sub-header">
-        @yield('sub-header')
+
+    @if(session('flash') !== null)
+    <div class="flash">
+        @if (session('flash'))
+        {{ session('flash') }}
+        @endif
     </div>
+    @endif
+
     <div class="wrapper">
 
         @isset ($leftbar)
@@ -34,11 +56,6 @@
         </main>
 
     </div>
-    <footer class="footer">
-        <div class="center">
-            @include('layout/footer')
-        </div>
-    </footer>
 
     <script src="app.js"></script>
 </body>

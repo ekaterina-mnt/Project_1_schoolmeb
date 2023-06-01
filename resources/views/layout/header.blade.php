@@ -37,8 +37,18 @@
     </form>
     @endguest
     
+    @auth("web")
     <form action="#">
         <button class="border try">
-            пощупать курс
+            мои курсы
         </button>
     </form>
+    @endauth
+
+    @guest("web")
+    <form action="#">
+        <button class="border try">
+            регистрация
+        </button>
+    </form>
+    @endguest

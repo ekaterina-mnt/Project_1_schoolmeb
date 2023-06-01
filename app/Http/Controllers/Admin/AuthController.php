@@ -20,9 +20,16 @@ class AuthController extends Controller
         ]);
 
         if (auth("admin")->attempt($data)) {
-            return redirect(route('welcome'));
+            return redirect(route('admin.courses.index'));
         }
 
         return redirect(route('admin.login'))->withErrors(["password" => 'Пользователь не найден, либо неверно введены данные.']);
+    }
+
+    public function logout()
+    {
+        auth("admin")->logout();
+
+        return redirect(route('welcome'));
     }
 }

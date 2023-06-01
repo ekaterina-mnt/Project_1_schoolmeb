@@ -9,6 +9,17 @@ class Course extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'subject',
+        'price',
+        'description',
+        'teacher_id',
+        'exam_type',
+        'num_students',
+        'poster',
+    ];
+
     public function teacher()
     {
         return $this->hasOne(Teacher::class);
