@@ -49,4 +49,12 @@ class User extends Authenticatable
     public function courses () {
         return $this->belongsToMany(Course::class);
     }
+
+    public function cart_courses() {
+        return $this->belongsToMany(Course::class)->where('status', 'in_cart');
+    }
+
+    public function paid_courses () {
+        return $this->belongsToMany(Course::class)->where('status', 'paid');
+    }
 }

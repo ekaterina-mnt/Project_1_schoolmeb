@@ -38,7 +38,7 @@
     @endguest
     
     @auth("web")
-    <form action="#">
+    <form action="{{ route('my_courses') }}">
         <button class="border try">
             мои курсы
         </button>
@@ -46,7 +46,7 @@
     @endauth
 
     @guest("web")
-    <form action="#">
+    <form action="{{ route('register') }}">
         <button class="border try">
             регистрация
         </button>

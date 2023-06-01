@@ -7,6 +7,7 @@ use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,9 @@ Route::middleware("auth")->group(function () {
 
     Route::get('/cart', [CartController::class, 'show_cart'])->name('show_cart');
     Route::get('/add_to_cart/{id}', [CartController::class, 'add_to_cart'])->name('add_to_cart');
+    Route::get('/pay/{id}', [CartController::class, 'pay'])->name('pay');
+
+    Route::get('/mycourses', [UserController::class, 'my_courses'])->name('my_courses');
 });
 
 Route::middleware("guest")->group(function () {
