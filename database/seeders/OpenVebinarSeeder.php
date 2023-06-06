@@ -41,7 +41,6 @@ class OpenVebinarSeeder extends Seeder
 
             DB::table('open_vebinars')->insert([
                 'title' => Str::random(10),
-                'cover' => '/storage/open_vebinars/open_vebinar_cover.jpg',
                 'video_src' => $video,
                 'img_src' => $img_src,
             ]);

@@ -12,7 +12,7 @@
 
 <div class="vebinars-wrap">
     @foreach ($vebinars as $vebinar)
-    <a href="openvebinars/{{ $vebinar->id }}">
+    <a href="{{ route('openvebinars.show', $vebinar->id) }}">
         <div class="about-vebinar">
             <img height=52px width=86px src="{{ $vebinar->img_src }}">
             <p>

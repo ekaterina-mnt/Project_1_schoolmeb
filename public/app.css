@@ -245,11 +245,30 @@ main.content {
     width: 100%;
 }
 
-.course-wrap img {
-    height: 120px;
-    margin: 10px;
-    margin-right: 40px;
-    width: 20%;
+.course-wrap a {
+    text-decoration: none;
+    color: black;
+}
+
+.about-course {
+    display:flex;
+    height: 100%;
+}
+
+.about-course img {
+    margin-right: 3%;
+    height: 100%;
+    border-radius: 10px 0 0 10px;
+}
+
+.about-course p {
+    height: 80%;
+    margin-right: 10px;
+}
+
+.about-course button {
+    margin-top: 43%;
+    margin-right: 10px;
 }
 
 select.courses {
@@ -320,6 +339,16 @@ img.courses-banner {
 
 .course-paginator a.current {
     color: black
+}
+
+/* О КУРСЕ */
+.course-show {
+    position: relative;
+    margin: 15px;
+    width: 600px;
+    height: 338px;
+    background-color: #F2F3F5;
+    display: inline-block;
 }
 
 /* ПРЕПОДАВАТЕЛИ */
