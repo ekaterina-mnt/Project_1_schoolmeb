@@ -341,7 +341,25 @@ img.courses-banner {
     color: black
 }
 
+.red-circle-cart_count {
+    position: relative;
+    width:20px;
+    height: 20px;
+    padding:4px;
+    border-radius: 50%;
+    background-color: #FF613F;
+    color:white;
+    font-size: 0.8em;
+    right: -533px;
+}
+
+a.cart_count {
+    text-decoration: none;
+    color:white;
+}
+
 /* О КУРСЕ */
+
 .course-show {
     position: relative;
     margin: 15px;

@@ -10,11 +10,22 @@
 
     <h1>все курсы</h1>
 
+    @if (auth()->check())
+    @if (count(auth()->user()->cart_courses))
+    <a class="cart_count" href="{{ route('show_cart') }}">
+        <div class="red-circle-cart_count">
+            {{ count(auth()->user()->cart_courses) }}
+        </div>
+    </a>
+    @endif
+    @endif
+
     <form action="{{ route('show_cart') }}">
         <button class="border cart">
             корзина
         </button>
     </form>
+
 
 </div>
 
@@ -82,6 +93,7 @@
             <form action="{{ route('add_to_cart', $course->id) }}">
                 <button type="submit">Добавить в корзину</button>
             </form>
+
             </p>
         </div>
     </a>
