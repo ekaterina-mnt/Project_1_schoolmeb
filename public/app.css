@@ -256,19 +256,13 @@ main.content {
 }
 
 .about-course img {
-    margin-right: 3%;
     height: 100%;
     border-radius: 10px 0 0 10px;
 }
 
-.about-course p {
-    height: 80%;
-    margin-right: 10px;
-}
-
 .about-course button {
     margin-top: 43%;
-    margin-right: 10px;
+    margin-right: 20px;
 }
 
 select.courses {
@@ -324,6 +318,7 @@ img.courses-banner {
     padding: 5px;
     border: 2px solid #C5C7CE;
     border-radius: 10px;
+    cursor:pointer;
 }
 
 .leftbar-subject input[type=radio]:checked+label {
@@ -356,6 +351,60 @@ img.courses-banner {
 a.cart_count {
     text-decoration: none;
     color:white;
+}
+
+button.add-to-cart {
+    background-color: black;
+    border: 2px solid black;
+    color: white;
+    border-radius: 10px;
+    font-family: monospace;
+    width: 105px;
+    font-weight: bold;
+    padding:5px;
+    cursor: pointer;
+}
+
+button.add-to-cart:hover {
+    text-shadow: 0.1px 0.1px white;
+}
+
+button.add-to-cart-disabled {
+    background-color: white;
+    color: black;
+    cursor:default;
+
+}
+
+.all-course-info {
+    direction: flex;
+    padding: 20px 5px 20px 10px;
+}
+
+.all-course-info p {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 10px;
+
+}
+
+.course-labels {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+p.course-label, p.course-label-teacher {
+    border: 1px solid black;
+    padding: 2px 5px 2px 5px;
+    margin-right: 10px;
+    background-color: white;
+    border: 2px solid #C5C7CE;
+    border-radius: 10px;
+}
+
+p.course-label-teacher {
+    background-color: #C5C7CE;
 }
 
 /* О КУРСЕ */

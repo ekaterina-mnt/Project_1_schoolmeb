@@ -57,7 +57,7 @@ class CourseSeeder extends Seeder
                 'exam_type' => ['ОГЭ', 'ЕГЭ'][mt_rand(0, 1)],
                 'about_course' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, qui...',
                 'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus cupiditate accusantium ratione reprehenderit explicabo, vero nihil harum nulla, debitis laudantium animi possimus, ullam architecto rem ipsum ipsa quod similique sed eius molestiae voluptates. Architecto quisquam odio voluptatem, reprehenderit veniam aut optio, laboriosam ad quam ipsam incidunt nostrum earum illo facere autem similique ratione non quaerat. Dignissimos quam voluptates numquam, veritatis rerum voluptatum asperiores soluta animi blanditiis, id quisquam reprehenderit cumque aut eveniet quia facilis iusto autem adipisci consequuntur? Suscipit nulla aperiam dignissimos quasi ea beatae exercitationem reprehenderit quam ratione doloremque. Voluptatum velit expedita reprehenderit ea voluptatem doloribus debitis illo error!',
-                'teacher_id' => mt_rand(0, 10),
+                'teacher_id' => mt_rand(1, 9),
                 'num_students' => 0,
                 'video_src' => $video,
                 'img_src' => $img_src,

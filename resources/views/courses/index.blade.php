@@ -1,8 +1,6 @@
 @extends('layout.layout')
 
-@section('title')
-Курсы
-@endsection
+@section('title', 'Курсы')
 
 @section('sub-header')
 
@@ -77,24 +75,44 @@
 <p>К сожалению, на данный момент в нашей школе нет курсов по данному предмету.</p>
 
 @else
+
 @foreach($courses as $course)
 
 <div class="course-wrap">
     <a href="{{ route('courses.show', $course) }}">
         <div class="about-course">
             <img src="{{ $course->img_src }}">
-            <p>
-                {{ $course->title }}<br>
-                {{ $course->subject }}<br>
-                {{ $course->exam_type }}<br>
-                {{ $course->about_course }}
-            </p>
-            <p>
+
+            <div class="all-course-info">
+                <p>{{ $course->title }}</p>
+                <div class="course-labels">
+                    <p class="course-label-teacher">{{ $course->teacher->name }}</p>
+                    <p class="course-label">{{ $course->subject }}</p>
+                    <p class="course-label">{{ $course->exam_type }}</p>
+                </div>
+                <p>{{ $course->about_course }}</p>
+                <p>
+            </div>
+
             <form action="{{ route('add_to_cart', $course->id) }}">
-                <button type="submit">Добавить в корзину</button>
+                <button class="add-to-cart @if (in_array($course->id, $coursesInCartID) or in_array($course->id, $coursesPaidID))
+                add-to-cart-disabled
+                @endif" type="submit"
+                @if (in_array($course->id, $coursesInCartID) or in_array($course->id, $coursesPaidID))
+                disabled
+                @endif>
+                    @if (in_array($course->id, $coursesInCartID))
+                    в корзине
+                    @elseif (in_array($course->id, $coursesPaidID))
+                    куплен
+                    @else
+                    + в корзину
+                    @endif
+                </button>
             </form>
 
             </p>
+
         </div>
     </a>
 </div>
@@ -105,7 +123,7 @@
 
     <p>Всего найдено: {{ $courses->total() }}</p>
 
-    @if ($courses->hasMorePages())
+    @if ($courses->hasPages())
     @for ($i=1; $i<=$courses->lastPage(); $i++)
         <a href="{{ $courses->url($i) }}" @if ($i==$courses->currentPage()) class="current" @endif>{{ $i }}</a>
         @endfor

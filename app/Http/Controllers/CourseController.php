@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CoursesFormRequest;
 use App\Models\Course;
 use Illuminate\Http\Request;
+use App\Models\Teacher;
 
 class CourseController extends Controller
 {
@@ -33,8 +34,24 @@ class CourseController extends Controller
 
         $sum = count($courses);
 
+        $coursesInCartID = [];
+        $coursesPaidID = [];
+
+        if (auth()->user()) {
+            foreach (auth()->user()->cart_courses as $course) {
+                $coursesInCartID[] = $course->id;
+            }
+        
+            foreach (auth()->user()->paid_courses as $course) {
+                $coursesPaidID[] = $course->id;
+            }
+        }
+    
+
         return view('courses.index', [
             'courses' => $courses,
+            'coursesInCartID' => $coursesInCartID,
+            'coursesPaidID' => $coursesPaidID,
             'subjects' => $subjects,
             'exam_type' => $exam_type,
             'selected_subject' => $subject,

@@ -17,12 +17,13 @@ class Course extends Model
         'teacher_id',
         'exam_type',
         'num_students',
-        'poster',
+        'img_src',
+        'video_src'
     ];
 
     public function teacher()
     {
-        return $this->hasOne(Teacher::class);
+        return $this->belongsTo(Teacher::class, 'teacher_id');
     }
 
     public function users()
