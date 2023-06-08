@@ -243,6 +243,7 @@ main.content {
     height: 140px;
     display: flex;
     width: 100%;
+    overflow: hidden;
 }
 
 .course-wrap a {
@@ -251,7 +252,7 @@ main.content {
 }
 
 .about-course {
-    display:flex;
+    display: flex;
     height: 100%;
 }
 
@@ -318,7 +319,7 @@ img.courses-banner {
     padding: 5px;
     border: 2px solid #C5C7CE;
     border-radius: 10px;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .leftbar-subject input[type=radio]:checked+label {
@@ -329,7 +330,8 @@ img.courses-banner {
 
 .course-paginator a {
     text-decoration: none;
-    color: #787D8B;;
+    color: #787D8B;
+    ;
 }
 
 .course-paginator a.current {
@@ -338,19 +340,19 @@ img.courses-banner {
 
 .red-circle-cart_count {
     position: relative;
-    width:20px;
+    width: 20px;
     height: 20px;
-    padding:4px;
+    padding: 4px;
     border-radius: 50%;
     background-color: #FF613F;
-    color:white;
+    color: white;
     font-size: 0.8em;
     right: -533px;
 }
 
 a.cart_count {
     text-decoration: none;
-    color:white;
+    color: white;
 }
 
 button.add-to-cart {
@@ -361,7 +363,7 @@ button.add-to-cart {
     font-family: monospace;
     width: 105px;
     font-weight: bold;
-    padding:5px;
+    padding: 5px;
     cursor: pointer;
 }
 
@@ -372,7 +374,7 @@ button.add-to-cart:hover {
 button.add-to-cart-disabled {
     background-color: white;
     color: black;
-    cursor:default;
+    cursor: default;
 
 }
 
@@ -388,34 +390,71 @@ button.add-to-cart-disabled {
 
 }
 
-.course-labels {
+.course-labels,
+.show-course-labels {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-bottom: 15px;
 }
 
-p.course-label, p.course-label-teacher {
+p.course-label,
+p.course-label-teacher,
+p.show-course-label,
+p.show-course-label-teacher {
     border: 1px solid black;
     padding: 2px 5px 2px 5px;
+    margin: 0;
     margin-right: 10px;
     background-color: white;
     border: 2px solid #C5C7CE;
     border-radius: 10px;
 }
 
+p.course-label-teacher,
+p.show-course-label-teacher {
+    background-color: #C5C7CE;
+}
+
+.course-info-title {
+    font-size: 1.3em;
+}
+
+/* КУРС SHOW */
+
+img.show-course {
+    height: 100%;
+}
+
+.show-course-wrapper {
+    height: 350px;
+    display: flex;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: default;
+}
+
+
 p.course-label-teacher {
     background-color: #C5C7CE;
 }
 
-/* О КУРСЕ */
+.show-course-info {
+    padding: 10px 40px 10px 40px;
+}
 
-.course-show {
-    position: relative;
-    margin: 15px;
-    width: 600px;
-    height: 338px;
-    background-color: #F2F3F5;
-    display: inline-block;
+p.course-description {
+    line-height: 20px;
+}
+
+button.show {
+    width: 180px;
+    margin-top: 10px;
+}
+
+.show-course-labels {
+    margin-bottom: 20px;
 }
 
 /* ПРЕПОДАВАТЕЛИ */

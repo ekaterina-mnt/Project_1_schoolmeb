@@ -84,7 +84,7 @@
             <img src="{{ $course->img_src }}">
 
             <div class="all-course-info">
-                <p>{{ $course->title }}</p>
+                <p class="course-info-title">курс {{ $course->title }}</p>
                 <div class="course-labels">
                     <p class="course-label-teacher">{{ $course->teacher->name }}</p>
                     <p class="course-label">{{ $course->subject }}</p>
@@ -102,7 +102,7 @@
                 disabled
                 @endif>
                     @if (in_array($course->id, $coursesInCartID))
-                    в корзине
+                    добавлено
                     @elseif (in_array($course->id, $coursesPaidID))
                     куплен
                     @else

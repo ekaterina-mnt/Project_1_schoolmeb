@@ -32,30 +32,11 @@ class CourseController extends Controller
             'информатика', 'профильная математика', 'география', 'обществознание'
         ];
 
-        $sum = count($courses);
-
-        $coursesInCartID = [];
-        $coursesPaidID = [];
-
-        if (auth()->user()) {
-            foreach (auth()->user()->cart_courses as $course) {
-                $coursesInCartID[] = $course->id;
-            }
-        
-            foreach (auth()->user()->paid_courses as $course) {
-                $coursesPaidID[] = $course->id;
-            }
-        }
-    
-
         return view('courses.index', [
             'courses' => $courses,
-            'coursesInCartID' => $coursesInCartID,
-            'coursesPaidID' => $coursesPaidID,
             'subjects' => $subjects,
             'exam_type' => $exam_type,
             'selected_subject' => $subject,
-            'sum' => $sum,
             'leftbar' => 'on',
         ]);
     }
@@ -90,6 +71,7 @@ class CourseController extends Controller
     public function show($course_id)
     {
         $course = Course::findOrFail($course_id);
+        
         return view('courses.show', [
             'course' => $course,
             'leftbar' => 'off',
