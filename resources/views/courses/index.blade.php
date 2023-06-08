@@ -95,15 +95,15 @@
             </div>
 
             <form action="{{ route('add_to_cart', $course->id) }}">
-                <button class="add-to-cart @if (in_array($course->id, $coursesInCartID) or in_array($course->id, $coursesPaidID))
+                <button class="add-to-cart @if (auth()->user()->courses->contains($course))
                 add-to-cart-disabled
                 @endif" type="submit"
-                @if (in_array($course->id, $coursesInCartID) or in_array($course->id, $coursesPaidID))
+                @if (auth()->user()->courses->contains($course))
                 disabled
                 @endif>
-                    @if (in_array($course->id, $coursesInCartID))
+                    @if (auth()->user()->cart_courses->contains($course))
                     добавлено
-                    @elseif (in_array($course->id, $coursesPaidID))
+                    @elseif (auth()->user()->paid_courses->contains($course))
                     куплен
                     @else
                     + в корзину
