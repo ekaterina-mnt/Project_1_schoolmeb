@@ -18,12 +18,13 @@
             <p class="course-description">{{ $course->description }}</p>
             <p>
             <form action="{{ route('add_to_cart', $course->id) }}">
-            <button class="add-to-cart @if (auth()->user()->courses->contains($course))
+                <button class="add-to-cart @auth @if (auth()->user()->courses->contains($course))
                 add-to-cart-disabled
-                @endif" type="submit"
-                @if (auth()->user()->courses->contains($course))
-                disabled
-                @endif>
+                @endif" @endauth type="submit" @auth @if (auth()->user()->courses->contains($course))
+                    disabled
+                    @endif
+                    @endauth>
+                    @auth
                     @if (auth()->user()->cart_courses->contains($course))
                     добавлено
                     @elseif (auth()->user()->paid_courses->contains($course))
@@ -31,6 +32,10 @@
                     @else
                     + в корзину
                     @endif
+                    @endauth
+                    @guest
+                    + в корзину
+                    @endguest
                 </button>
             </form>
             </p>
