@@ -15,22 +15,38 @@
 @else
 
 @foreach ($courses as $course)
-<p>{{ $course->title }}
-    <br>
-    {{ $course->exam_type }}
 
-    <form action="{{ route('cart.pay', $course->id) }}">
-        <button type="submit">
-            оплатить
-        </button>
-    </form>
+<div class="cart-wrapper">
+    <div class="about-cart">
+        <img class="cart-course" src="{{ $course->img_src }}">
 
-    <form action="{{ route('cart.destroy', $course->id) }}">
-        <button type="submit">
-            удалить из корзины
-        </button>
-    </form>
-</p>
+        <div class="all-cart-course-info">
+            <p class="course-info-title">курс {{ $course->title }}</p>
+            <div class="course-labels">
+                <p class="course-label-teacher">{{ $course->teacher->name }}</p>
+                <p class="course-label">{{ $course->subject }}</p>
+                <p class="course-label">{{ $course->exam_type }}</p>
+            </div>
+            <hr class="cart">
+            <p>{{ $course->description }}</p>
+
+            <div class="cart-buttons">
+            <form action="{{ route('cart.pay', $course->id) }}">
+                <button class="cart-pay" type="submit">
+                    оплатить
+                </button>
+            </form>
+
+            <form action="{{ route('cart.destroy', $course->id) }}">
+                <button class="cart-delete" type="submit">
+                    удалить из корзины
+                </button>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 @endforeach
 @endif
 

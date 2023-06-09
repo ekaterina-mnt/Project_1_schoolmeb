@@ -252,7 +252,8 @@ main.content {
     color: black;
 }
 
-.about-course {
+.about-course,
+.about-cart {
     display: flex;
     height: 100%;
 }
@@ -351,40 +352,18 @@ img.courses-banner {
     right: -533px;
 }
 
-a.cart_count {
-    text-decoration: none;
-    color: white;
-}
-
-button.add-to-cart {
-    background-color: black;
-    border: 2px solid black;
-    color: white;
-    border-radius: 10px;
-    font-family: monospace;
-    width: 105px;
-    font-weight: bold;
-    padding: 5px;
-    cursor: pointer;
-}
-
-button.add-to-cart:hover {
-    text-shadow: 0.1px 0.1px white;
-}
-
-button.add-to-cart-disabled {
-    background-color: white;
-    color: black;
-    cursor: default;
-
-}
-
-.all-course-info {
+.all-course-info,
+.all-cart-course-info {
     direction: flex;
     padding: 20px 5px 20px 10px;
 }
 
-.all-course-info p {
+.all-cart-course-info {
+    width: 100%;
+}
+
+.all-course-info p,
+.all-cart-course-info p {
     padding: 0;
     margin: 0;
     margin-bottom: 10px;
@@ -423,7 +402,8 @@ p.show-course-label-teacher {
 
 /* КУРС SHOW */
 
-img.show-course {
+img.show-course,
+img.cart-course {
     height: 100%;
 }
 
@@ -456,6 +436,64 @@ button.show {
 
 .show-course-labels {
     margin-bottom: 20px;
+}
+
+/* КОРЗИНА */
+
+a.cart_count {
+    text-decoration: none;
+    color: white;
+}
+
+button.add-to-cart,
+button.cart-pay,
+button.cart-delete {
+    background-color: black;
+    border: 2px solid black;
+    color: white;
+    border-radius: 10px;
+    font-family: monospace;
+    width: 105px;
+    font-weight: bold;
+    padding: 5px;
+    cursor: pointer;
+}
+
+button.cart-delete {
+    width: 185px;
+}
+
+button.add-to-cart:hover,
+button.cart-delete:hover,
+button.cart-pay:hover {
+    text-shadow: 0.1px 0.1px white;
+}
+
+button.add-to-cart-disabled {
+    background-color: white;
+    color: black;
+    cursor: default;
+
+}
+
+.cart-wrapper {
+    background-color: white;
+    height: 250px;
+    margin-bottom: 30px;
+}
+
+.cart-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.cart-buttons button {
+    margin: 10px 10px 0 10px;
+}
+
+hr.cart {
+    height: 2px;
+    background-color:#C5C7CE;
 }
 
 /* ПРЕПОДАВАТЕЛИ */
