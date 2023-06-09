@@ -47,7 +47,7 @@ class CartController extends Controller
             $course->num_students++;
             $course->save();
 
-            DB::table('course_user')->update([
+            DB::table('course_user')->where('course_id', $course_id)->update([
                 'status' => 'paid',
             ]);
 
