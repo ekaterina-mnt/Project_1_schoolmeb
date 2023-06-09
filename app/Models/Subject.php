@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Subject extends Model
 {
     use HasFactory;
+
+    public function teacher() {
+        return $this->hasOne(Teacher::class);
+    }
+
+    public function courses() {
+        return $this->hasMany(Course::class);
+    }
 }

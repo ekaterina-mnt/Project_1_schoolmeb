@@ -39,29 +39,33 @@ class CourseSeeder extends Seeder
             'https://youtu.be/7YmNvCy30FU',
         ];
 
-        $subjects = ['биология', 'базовая математика', 'русский язык', 
-        'английский язык', 'химия', 'литература', 'история', 'физика', 
-        'информатика', 'профильная математика', 'география', 'обществознание'];
-
         $prices = [1090, 2900, 3900, 4500];
 
-        foreach ($videos as $i => $video) {
+        $i = 1; //subject_id === teacher_id по логике кода в TeacherSeeder, 
+        // аналогично и здесь - чтобы сохранялась логическая связь преподаватель-предмет-курс
+
+        foreach ($videos as $key => $video) {
             $el = explode('/', $video);
             $youtube_id = $el[3];
             $img_src = "https://i.ytimg.com/vi/" . $youtube_id . "/maxresdefault.jpg";
 
+            if ($i > 9) {
+                $i = 1;
+            }
+
             DB::table('courses')->insert([
                 'title' => Str::random(10),
-                'subject' => $subjects[mt_rand(0, count($subjects) - 1)],
-                'price' => $prices[mt_rand(0,3)],
+                'subject_id' => $i,
+                'price' => $prices[mt_rand(0, 3)],
                 'exam_type' => ['ОГЭ', 'ЕГЭ'][mt_rand(0, 1)],
                 'about_course' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, qui...',
                 'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa officiis doloribus fugiat architecto, illum labore laudantium non veritatis iure libero voluptates minima saepe odio ut, consectetur nihil eum. Enim, odit voluptate. Earum consequatur quidem minima doloribus cupiditate vel, expedita ex praesentium esse, adipisci dicta aperiam quibusdam fugit? Animi, id nostrum.',
-                'teacher_id' => mt_rand(1, 9),
+                'teacher_id' => $i,
                 'num_students' => 0,
                 'video_src' => $video,
                 'img_src' => $img_src,
             ]);
+            $i++;
         }
     }
 }

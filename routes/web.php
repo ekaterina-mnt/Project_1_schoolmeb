@@ -20,9 +20,7 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');;
+Route::get('/', [IndexController::class, 'welcome'])->name('welcome');
 
 Route::get('/teachers/{subject?}', [TeacherController::class, 'index'])->name('teachers.index');
 Route::post('/teachers_form_process', [TeacherController::class, 'teachers_form_process'])->name('teachers_form_process');

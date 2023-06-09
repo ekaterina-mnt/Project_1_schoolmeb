@@ -14,22 +14,16 @@ class TeacherSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
-        $subjects = [
-            'биология', 'базовая математика', 'русский язык',
-            'английский язык', 'химия', 'литература', 'история', 'физика',
-            'информатика', 'профильная математика', 'география', 'обществознание'
-        ];
-
+    {      
         $photos = [
             'ariana_grande.jpg', 'bojack.jpg', 'dua_lipa.png', 'jonny_depp.jpg',
             'oleg_lsp.jpg', 'pyrokinesis.jpg', 'rick.jpeg', 'chester.jpg', 'skriptonit.jpg'
         ];
 
-        foreach ($photos as $photo) {
+        foreach ($photos as $key => $photo) {
             DB::table('teachers')->insert([
                 'name' => fake()->name(),
-                'subject' => $subjects[mt_rand(0, count($subjects) - 1)],
+                'subject_id' => $key+1,
                 'exam' => ['ОГЭ', 'ЕГЭ'][mt_rand(0, 1)],
                 'age' => mt_rand(20, 30),
                 'photo' => "/storage/teachers/$photo",
