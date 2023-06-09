@@ -17,13 +17,13 @@
         @include('layout/header')
     </header>
 
-    @if(session('flash') !== null)
     <div class="flash">
+        @if(session('flash') !== null)
         @if (session('flash'))
         {{ session('flash') }}
         @endif
+        @endif
     </div>
-    @endif
 
     <div class="sub-header">
         @yield('sub-header')

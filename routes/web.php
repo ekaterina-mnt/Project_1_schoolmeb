@@ -41,7 +41,8 @@ Route::middleware("auth")->group(function () {
 
     Route::get('/cart', [CartController::class, 'show_cart'])->name('show_cart');
     Route::get('/add_to_cart/{id}', [CartController::class, 'add_to_cart'])->name('add_to_cart');
-    Route::get('/pay/{id}', [CartController::class, 'pay'])->name('pay');
+    Route::get('/cart/pay/{id}', [CartController::class, 'pay'])->name('cart.pay');
+    Route::get('/cart/destroy/{id}', [CartController::class, 'destroy'])->name('cart.destroy');
 
     Route::get('/mycourses', [UserController::class, 'my_courses'])->name('my_courses');
 });

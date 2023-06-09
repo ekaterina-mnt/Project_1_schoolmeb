@@ -19,9 +19,15 @@
     <br>
     {{ $course->exam_type }}
 
-    <form action="{{ route('pay', $course->id) }}">
+    <form action="{{ route('cart.pay', $course->id) }}">
         <button type="submit">
-            Оплатить
+            оплатить
+        </button>
+    </form>
+
+    <form action="{{ route('cart.destroy', $course->id) }}">
+        <button type="submit">
+            удалить из корзины
         </button>
     </form>
 </p>

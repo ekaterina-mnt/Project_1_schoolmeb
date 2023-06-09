@@ -27,7 +27,7 @@ class CartController extends Controller
                 'status' => 'in_cart',
             ]);
 
-            return redirect(route('show_cart'))->with('flash', 'Курс успешно добавлен в корзину!');
+            return redirect()->back()->with('flash', 'Курс успешно добавлен в корзину!');
         } elseif ($cart_courses->where('id', $course_id)->count()) {
             return redirect()->back()->with('flash', 'Данный курс уже находится в вашей корзине!');
         } elseif ($paid_courses->where('id', $course_id)->count()) {
@@ -51,11 +51,25 @@ class CartController extends Controller
                 'status' => 'paid',
             ]);
 
-            return redirect(route('courses.index'))->with('flash', 'Вы успешно оплатили данный курс!');
+            return redirect()->back()->with('flash', 'Вы успешно оплатили данный курс!');
         } elseif ($paid_courses->where('id', $course_id)->count()) {
             return redirect()->back()->with('flash', 'Вы уже приобрели данный курс!');
         } else {
             return redirect()->back()->with('flash', 'Возникла проблема с оплатой курса, свяжитесь с нами для ее исправления!');
         }
+    }
+
+    public function destroy($course_id)
+    {
+        DB::table('course_user')
+            ->where('course_id', $course_id)
+            ->where('status', 'in_cart')
+            ->delete();
+
+        return redirect()->back()->with('flash', 'Курс был успешно удален из корзины!');
+    }
+
+    public function flash() {
+        return redirect()->back()->with('flash', 'Fixing up');
     }
 }
