@@ -43,6 +43,7 @@ Route::middleware("auth")->group(function () {
     Route::get('/cart/destroy/{id}', [CartController::class, 'destroy'])->name('cart.destroy');
 
     Route::get('/mycourses', [UserController::class, 'my_courses'])->name('my_courses');
+    Route::get('/mycourses/{course}', [UserController::class, 'watch'])->name('my_courses_watch');
 });
 
 Route::middleware("guest")->group(function () {

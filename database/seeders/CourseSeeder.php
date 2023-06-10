@@ -17,26 +17,26 @@ class CourseSeeder extends Seeder
     public function run()
     {
         $videos = [
-            'https://youtu.be/QzdovKFkXSo',
-            'https://youtu.be/z22tv0jjr94',
-            'https://youtu.be/BZJdfwRtNR8',
-            'https://youtu.be/xjjpTuG9GyU',
-            'https://youtu.be/xFfm7YkOcgI',
-            'https://youtu.be/sHCfC0v73ks',
-            'https://youtu.be/OyFIKIAVeLA',
-            'https://youtu.be/JAG6un72w8U',
-            'https://youtu.be/7gRuubWSAUU',
-            'https://youtu.be/syp6Lsd8HOo',
-            'https://youtu.be/6H-PLF2CR18',
-            'https://youtu.be/YJzFDzAqdNA',
-            'https://youtu.be/3C_KO2Fmqes',
-            'https://youtu.be/c3suauAz0zQ',
-            'https://youtu.be/XTRanAwMZ7c',
-            'https://youtu.be/EJU90JyRxIA',
-            'https://youtu.be/VsTY-kyp2Js',
-            'https://youtu.be/AUZJp8LQZ3U',
-            'https://youtu.be/5Mgb4bzU3hs',
-            'https://youtu.be/7YmNvCy30FU',
+            'https://www.youtube.com/embed/QzdovKFkXSo',
+            'https://www.youtube.com/embed/z22tv0jjr94',
+            'https://www.youtube.com/embed/BZJdfwRtNR8',
+            'https://www.youtube.com/embed/xjjpTuG9GyU',
+            'https://www.youtube.com/embed/xFfm7YkOcgI',
+            'https://www.youtube.com/embed/sHCfC0v73ks',
+            'https://www.youtube.com/embed/OyFIKIAVeLA',
+            'https://www.youtube.com/embed/JAG6un72w8U',
+            'https://www.youtube.com/embed/7gRuubWSAUU',
+            'https://www.youtube.com/embed/syp6Lsd8HOo',
+            'https://www.youtube.com/embed/6H-PLF2CR18',
+            'https://www.youtube.com/embed/YJzFDzAqdNA',
+            'https://www.youtube.com/embed/3C_KO2Fmqes',
+            'https://www.youtube.com/embed/c3suauAz0zQ',
+            'https://www.youtube.com/embed/XTRanAwMZ7c',
+            'https://www.youtube.com/embed/EJU90JyRxIA',
+            'https://www.youtube.com/embed/VsTY-kyp2Js',
+            'https://www.youtube.com/embed/AUZJp8LQZ3U',
+            'https://www.youtube.com/embed/5Mgb4bzU3hs',
+            'https://www.youtube.com/embed/7YmNvCy30FU',
         ];
 
         $prices = [1090, 2900, 3900, 4500];
@@ -46,7 +46,7 @@ class CourseSeeder extends Seeder
 
         foreach ($videos as $key => $video) {
             $el = explode('/', $video);
-            $youtube_id = $el[3];
+            $youtube_id = $el[4];
             $img_src = "https://i.ytimg.com/vi/" . $youtube_id . "/maxresdefault.jpg";
 
             if ($i > 9) {

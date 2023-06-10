@@ -452,7 +452,8 @@ a.cart_count {
 
 button.add-to-cart,
 button.cart-pay,
-button.cart-delete {
+button.cart-delete,
+button.course-watch {
     background-color: black;
     border: 2px solid black;
     color: white;
@@ -462,6 +463,10 @@ button.cart-delete {
     font-weight: bold;
     padding: 5px;
     cursor: pointer;
+}
+
+button.course-watch {
+    margin-top:10px;
 }
 
 button.cart-delete {

@@ -15,11 +15,31 @@
 @else
 
 @foreach ($courses as $course)
-<p>{{ $course->title }}
-    <br>
-    {{ $course->exam_type }}
 
-</p>
+<div class="cart-wrapper">
+    <div class="about-cart">
+
+        <div class="all-cart-course-info">
+            <p class="course-info-title">курс {{ $course->title }}</p>
+            <div class="course-labels">
+                <p class="course-label-teacher">{{ $course->teacher->name }}</p>
+                <p class="course-label">{{ $course->subject->name }}</p>
+                <p class="course-label">{{ $course->exam_type }}</p>
+            </div>
+            <hr class="cart">
+            <p>{{ $course->description }}</p>
+
+            <form action="{{ route('my_courses_watch', $course) }}">
+                <button class="course-watch" type="submit">
+                    смотреть
+                </button>
+            </form>
+        </div>
+
+        <img class="cart-course" src="{{ $course->img_src }}">
+    </div>
+</div>
+
 @endforeach
 @endif
 

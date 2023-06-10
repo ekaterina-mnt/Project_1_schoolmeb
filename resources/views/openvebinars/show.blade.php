@@ -4,6 +4,12 @@
 {{ $vebinar->title }}
 @endsection
 
+@section('sub-header')
+<div class="sub-header">
+    <h1>открытый вебинар {{ $vebinar->title }}</h1>
+</div>
+@endsection
+
 @section('content')
 
 <div class="video" data-video-src="{{ $vebinar->video_src }}" data-img-src="{{ $vebinar->img_src }}">
