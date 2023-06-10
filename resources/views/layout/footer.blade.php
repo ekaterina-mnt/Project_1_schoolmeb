@@ -1,17 +1,15 @@
 <div class="row">
     <ul>
         <li>
-            <h4 class="larger">
+            <h4 class="larger default-cursor">
                 мебиум
             </h4>
         </li>
     </ul>
     <ul>
         <li>
-            <h4>
-
+            <h4 class="default-cursor">
                 сайт
-
             </h4>
         </li>
         <li>
@@ -42,7 +40,7 @@
     </ul>
     <ul>
         <li>
-            <h4>
+            <h4 class="default-cursor">
                 по всем вопросам
             </h4>
         </li>
@@ -51,7 +49,7 @@
                 info@mebium.ru
             </a>
             <br>
-            <div class="gray">
+            <div class="gray default-cursor">
                 что-то спросить? пишите сюда
             </div>
         </li>
@@ -60,7 +58,7 @@
                 sale@mebium.ru
             </a>
             <br>
-            <div class="gray">
+            <div class="gray default-cursor">
                 узнать про курс или оплатить учебу
             </div>
         </li>
@@ -69,7 +67,7 @@
                 pr@mebium.ru
             </a>
             <br>
-            <div class="gray">
+            <div class="gray default-cursor">
                 PR-вопросы и партнерство
             </div>
         </li>
@@ -78,14 +76,14 @@
                 hr@mebium.ru
             </a>
             <br>
-            <div class="gray">
+            <div class="gray default-cursor">
                 если вы хотите у нас работать
             </div>
         </li>
     </ul>
     <ul>
         <li>
-            <h4>
+            <h4 class="default-cursor">
                 контакты
             </h4>
         </li>
@@ -97,7 +95,7 @@
         <li>
             <form action="{{ route('contact_form') }}">
                 <button class="border call_me">
-                    перезвоните мне
+                    связаться с нами
                 </button>
             </form>
         </li>
@@ -151,6 +149,6 @@
     </ul>
 </div>
 
-<div>
+<div class="default-cursor">
     <p>P.S.: Данный сайт является учебным проектом по веб-разработке и не носит коммерческого характера! Вдохновлено сайтом webium.com. Контакты: ekaterina22.03@rambler.ru</p>
 </div>

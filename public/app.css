@@ -173,6 +173,15 @@ footer .gray {
     color: #787D8B;
 }
 
+.default-cursor {
+    cursor: default;
+}
+
+footer .call_me {
+    margin: 5px 0 5px 0;
+    padding: 10px;
+}
+
 
 /* ФАВИКОНКИ В ФУТЕРЕ */
 

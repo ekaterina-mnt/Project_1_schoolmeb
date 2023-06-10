@@ -8,7 +8,7 @@
     </form>
     <form action="{{ route('contact_form') }}">
         <button class="border call_me">
-            перезвоните мне
+            связаться с нами
         </button>
     </form>
     <a class="left-gap" href="{{ url('/courses') }}">

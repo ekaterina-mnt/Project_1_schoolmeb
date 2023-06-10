@@ -23,6 +23,6 @@ class IndexController extends Controller
     {
         Mail::to('ekaterina22.03@rambler.ru')->send(new ContactForm($request->validated()));
 
-        return redirect('/')->with('flash', 'Данные отправлены успешно, Вам скоро перезвонят!');
+        return redirect('/')->with('flash', 'Данные отправлены успешно, мы скоро свяжемся с Вами!');
     }
 }
