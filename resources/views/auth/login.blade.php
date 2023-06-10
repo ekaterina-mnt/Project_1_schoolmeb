@@ -4,32 +4,40 @@
 
 @section('content')
 
-<h1>Вход</h1>
+<div class="auth-wrapper">
 
-<form action="{{ route('login_process') }}" method="POST">
-    @csrf
+    <h1 class="auth">войти в мебиум</h1>
 
-    <input name="email" type="text" placeholder="Email" />
+    <form action="{{ route('login_process') }}" method="POST">
+        @csrf
 
-    @error('email')
-    <p>{{ $message }}</p>
-    @enderror
+        <div class="auth-label">
+            <label>
+                <p class="left">логин</p>
+                <p><input class="auth" name="email" type="text" placeholder="e-mail" /></p>
+            </label>
 
-    <input name="password" type="password" placeholder="Пароль" />
+            @error('email')
+            <p class="form-error">{{ $message }}</p>
+            @enderror
+        </div>
 
-    @error('password')
-    <p>{{ $message }}</p>
-    @enderror
+        <div class="auth-label">
+            <label>
+                <p class="left">пароль</p>
+                <p><input class="auth" name="password" type="password" placeholder="пароль" /></p>
+            </label>
 
-    <div>
-        <a href="{{ route('forgot') }}">Забыли пароль?</a>
-    </div>
+            @error('password')
+            <p class="form-error">{{ $message }}</p>
+            @enderror
+        </div>
 
-    <div>
-        <a href="{{ route('register') }}">Регистрация</a>
-    </div>
+        <p><a class="auth-forget" href="{{ route('forgot') }}">забыли пароль?</a></p>
 
-    <button type="submit">Войти</button>
-</form>
+        <p><button class="auth-login" type="submit">войти</button></p>
+    </form>
+
+</div>
 
 @endsection

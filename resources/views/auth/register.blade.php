@@ -4,41 +4,63 @@
 
 @section('content')
 
-<h1>Регистрация</h1>
+<div class="auth-wrapper">
 
-<form action="{{ route('register_process') }}" method="POST">
-    @csrf
+    <h1 class="auth">регистрация</h1>
 
-    <input name="name" type="text" placeholder="Имя" />
-    
-    @error('name') 
-        <p>{{ $message }}</p>
-    @enderror
-    
-    <input name="email" type="text" placeholder="Email" />
+    <form action="{{ route('register_process') }}" method="POST">
+        @csrf
 
-    @error('email') 
-    <!-- можно варьировать классы добавляя их через ошибку -->
-        <p>{{ $message }}</p>
-    @enderror
+        <div class="auth-label">
+            <label>
+                <p class="left">имя</p>
+                <p><input class="auth" name="name" type="text" placeholder="имя" /></p>
+            </label>
 
-    <input name="password" type="password" placeholder="Пароль" />
-    
-    @error('password') 
-        <p>{{ $message }}</p>
-    @enderror
-    
-    <input name="password_confirmation" type="password" placeholder="Подтверждение пароля" />
+            @error('name')
+            <p class="form-error">{{ $message }}</p>
+            @enderror
+        </div>
 
-    @error('password_confirmation') 
-        <p>{{ $message }}</p>
-    @enderror
+        <div class="auth-label">
+            <label>
+                <p class="left">e-mail</p>
+                <p><input class="auth" name="email" type="text" placeholder="e-mail" /></p>
+            </label>
 
-    <div>
-        <a href="{{ route('login') }}">Есть аккаунт?</a>
-    </div>
+            @error('email')
+            <p class="form-error">{{ $message }}</p>
+            @enderror
+        </div>
 
-    <button type="submit">Зарегистрироваться</button>
-</form>
+        <div class="auth-label">
+            <label>
+                <p class="left">придумайте пароль</p>
+                <p><input class="auth" name="password" type="password" placeholder="пароль" /></p>
+            </label>
+
+            @error('password')
+            <p class="form-error">{{ $message }}</p>
+            @enderror
+        </div>
+
+        <div class="auth-label">
+            <label>
+                <p class="left">повторите пароль</p>
+                <p><input class="auth" name="password_confirmation" type="password" placeholder="подтверждение пароля" /></p>
+            </label>
+
+            @error('password_confirmation')
+            <p class="form-error">{{ $message }}</p>
+            @enderror
+        </div>
+
+        <p><a class="auth-forget" href="{{ route('login') }}">Есть аккаунт?</a>
+
+
+        <p><button class="auth-login" type="submit">Зарегистрироваться</button></p>
+    </form>
+
+</div>
 
 @endsection

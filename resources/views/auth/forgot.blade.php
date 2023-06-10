@@ -4,18 +4,28 @@
 
 @section('content')
 
-<h1>Восстановление пароля</h1>
+<div class="auth-wrapper">
 
-<form action="{{ route('forgot_process') }}" method="POST">
-    @csrf
+    <h1 class="auth">Восстановление пароля</h1>
 
-    <input name="email" type="text" placeholder="Email" />
+    <form action="{{ route('forgot_process') }}" method="POST">
+        @csrf
 
-    @error('email')
-    <p>{{ $message }}</p>
-    @enderror
+        <div class="auth-label">
+        <label>
+            <p class="left">e-mail</p>
+            <p><input class="auth" name="email" type="text" placeholder="e-mail" /></p>
+        </label>
 
-    <button type="submit">Восстановить</button>
-</form>
+@error('email')
+<p class="form-error">{{ $message }}</p>
+@enderror
+    </div>
+
+        <p><button class="auth-login" type="submit">восстановить</button></p>
+    </form>
+</div>
+
+
 
 @endsection
