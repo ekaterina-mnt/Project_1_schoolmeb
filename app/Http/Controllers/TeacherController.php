@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 use App\Http\Requests\TeachersFormRequest;
+use App\Models\Subject;
 
 class TeacherController extends Controller
 {
@@ -13,22 +14,18 @@ class TeacherController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($subject = 'все')
+    public function index($subject = 'all')
     {
-        if ($subject == 'все') {
+        if ($subject == 'all') {
             $teachers = Teacher::all()
                 ->sortBy('name');
         } else {
             $teachers = Teacher::all()
-            ->where('subject', $subject)
+            ->where('subject_id', $subject)
                 ->sortBy('name');
         }
 
-        $subjects = [
-            'все', 'биология', 'базовая математика', 'русский язык',
-            'английский язык', 'химия', 'литература', 'история', 'физика',
-            'информатика', 'профильная математика', 'география', 'обществознание'
-        ];
+        $subjects = Subject::all();
 
         return view('teachers.index', [
             'teachers' => $teachers,
@@ -67,7 +64,10 @@ class TeacherController extends Controller
      */
     public function show(Teacher $teacher)
     {
-        //
+        return view('teachers.show', [
+            'teacher' => $teacher,
+            'leftbar' => 'off',
+        ]);
     }
 
     /**

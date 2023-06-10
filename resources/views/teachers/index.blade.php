@@ -11,9 +11,12 @@
     @csrf
 
     <select name="subject" class="courses">
+        <option value="all" @if ($selected_subject=='all' ) selected @endif>
+            все предметы
+        </option>
         @foreach ($subjects as $subject)
-        <option value="{{ $subject }}" @if ($subject==$selected_subject) selected @endif>
-            {{ $subject }}
+        <option value="{{ $subject->id }}" @if ($subject->id==$selected_subject) selected @endif>
+            {{ $subject->name }}
         </option>
         @endforeach
     </select>
@@ -33,17 +36,18 @@
 <div class="teachers-wrap">
 
     @foreach($teachers as $teacher)
+    <a href="{{ route('teacher.show', $teacher->id) }}">
     <div class="about-teacher">
         <img src="{{ $teacher->photo }}">
-        <p>
-            {{ $teacher->name }}<br>
-            {{ $teacher->subject }}<br>
-            {{ $teacher->exam }}<br>
-            {{ $teacher->age }}
-        </p>
+        <p>{{ $teacher->name }}</p>
+        <div class="teacher-labels">
+            <p class="teacher-label">{{ $teacher->subject->name }}</p>
+            <p class="teacher-label">{{ $teacher->age }}</p>
+        </div>
     </div>
+    </a>
     @endforeach
-@endif
+    @endif
 </div>
 
 @endsection

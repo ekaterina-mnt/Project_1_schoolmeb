@@ -23,6 +23,7 @@ use App\Http\Controllers\UserController;
 Route::get('/', [IndexController::class, 'welcome'])->name('welcome');
 
 Route::get('/teachers/{subject?}', [TeacherController::class, 'index'])->name('teachers.index');
+Route::get('/teachers/show/{teacher}', [TeacherController::class, 'show'])->name('teacher.show');
 Route::post('/teachers_form_process', [TeacherController::class, 'teachers_form_process'])->name('teachers_form_process');
 
 Route::get('/courses/show/{id}', [CourseController::class, 'show'])->name('courses.show');
