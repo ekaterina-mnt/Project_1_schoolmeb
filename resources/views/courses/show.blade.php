@@ -4,6 +4,33 @@
 {{ $course->title }}
 @endsection
 
+@section('sub-header')
+
+<div class="row">
+
+    <h1>о курсе</h1>
+
+    @if (auth()->check())
+    @if (count(auth()->user()->cart_courses))
+    <a class="cart_count" href="{{ route('show_cart') }}">
+        <div class="red-circle-cart_count-show">
+            {{ count(auth()->user()->cart_courses) }}
+        </div>
+    </a>
+    @endif
+    @endif
+
+    <form action="{{ route('show_cart') }}">
+        <button class="border cart">
+            корзина
+        </button>
+    </form>
+
+
+</div>
+
+@endsection
+
 @section('content')
 <div class="show-course-wrapper">
     <div>
@@ -12,7 +39,7 @@
             <div class="show-course-labels">
 
                 <p class="show-course-label-teacher">{{ $course->teacher->name }}</p>
-                <p class="show-course-label">{{ $course->subject }}</p>
+                <p class="show-course-label">{{ $course->subject->name }}</p>
                 <p class="show-course-label">{{ $course->exam_type }}</p>
             </div>
             <p class="course-description">{{ $course->description }}</p>
@@ -26,7 +53,7 @@
                     @endauth>
                     @auth
                     @if (auth()->user()->cart_courses->contains($course))
-                    добавлено
+                    в корзине
                     @elseif (auth()->user()->paid_courses->contains($course))
                     куплен
                     @else

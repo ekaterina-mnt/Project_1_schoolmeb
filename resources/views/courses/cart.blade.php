@@ -24,7 +24,7 @@
             <p class="course-info-title">курс {{ $course->title }}</p>
             <div class="course-labels">
                 <p class="course-label-teacher">{{ $course->teacher->name }}</p>
-                <p class="course-label">{{ $course->subject }}</p>
+                <p class="course-label">{{ $course->subject->name }}</p>
                 <p class="course-label">{{ $course->exam_type }}</p>
             </div>
             <hr class="cart">

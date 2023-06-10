@@ -11,7 +11,7 @@
     @if (auth()->check())
     @if (count(auth()->user()->cart_courses))
     <a class="cart_count" href="{{ route('show_cart') }}">
-        <div class="red-circle-cart_count">
+        <div class="red-circle-cart_count-index">
             {{ count(auth()->user()->cart_courses) }}
         </div>
     </a>
@@ -49,11 +49,17 @@
 
     <div class="leftbar-form-bottom-margin">
         <div class="leftbar-subjects-list ">
+        <div class="leftbar-subject">
+                <input type="radio" name="subject" value="all" id="all" @if ($selected_subject=='all') checked @endif>
+                <label for="all">
+                    все предметы
+                </label>
+            </div>
             @foreach ($subjects as $subject)
             <div class="leftbar-subject">
-                <input type="radio" name="subject" value="{{ $subject }}" id="{{ $subject }}" @if ($subject==$selected_subject) checked @endif>
-                <label for="{{ $subject }}">
-                    {{ $subject }}
+                <input type="radio" name="subject" value="{{ $subject->id }}" id="{{ $subject->id }}" @if ($subject->id==$selected_subject) checked @endif>
+                <label for="{{ $subject->id }}">
+                    {{ $subject->name }}
                 </label>
             </div>
             @endforeach
@@ -87,7 +93,7 @@
                 <p class="course-info-title">курс {{ $course->title }}</p>
                 <div class="course-labels">
                     <p class="course-label-teacher">{{ $course->teacher->name }}</p>
-                    <p class="course-label">{{ $course->subject }}</p>
+                    <p class="course-label">{{ $course->subject->name }}</p>
                     <p class="course-label">{{ $course->exam_type }}</p>
                 </div>
                 <p>{{ $course->about_course }}</p>
@@ -103,7 +109,7 @@
                     @endauth>
                     @auth
                     @if (auth()->user()->cart_courses->contains($course))
-                    добавлено
+                    в корзине
                     @elseif (auth()->user()->paid_courses->contains($course))
                     куплен
                     @else

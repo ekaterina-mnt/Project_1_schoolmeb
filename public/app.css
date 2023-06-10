@@ -340,7 +340,8 @@ img.courses-banner {
     color: black
 }
 
-.red-circle-cart_count {
+.red-circle-cart_count-index,
+.red-circle-cart_count-show {
     position: relative;
     width: 20px;
     height: 20px;
@@ -350,6 +351,10 @@ img.courses-banner {
     color: white;
     font-size: 0.8em;
     right: -533px;
+}
+
+.red-circle-cart_count-show {
+    right: -550px;
 }
 
 .all-course-info,

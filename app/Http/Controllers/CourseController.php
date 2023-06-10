@@ -6,6 +6,7 @@ use App\Http\Requests\CoursesFormRequest;
 use App\Models\Course;
 use Illuminate\Http\Request;
 use App\Models\Teacher;
+use App\Models\Subject;
 
 class CourseController extends Controller
 {
@@ -14,23 +15,19 @@ class CourseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($exam_type = 'все', $subject = 'все предметы')
+    public function index($exam_type = 'все', $subject = 'all')
     {
-        if (($exam_type == 'все') and ($subject == 'все предметы')) {
+        if (($exam_type == 'все') and ($subject == 'all')) {
             $courses = Course::paginate(5);
         } elseif ($exam_type == 'все') {
-            $courses = Course::where('subject', $subject)->paginate(5);
-        } elseif ($subject == 'все предметы') {
+            $courses = Course::where('subject_id', $subject)->paginate(5);
+        } elseif ($subject == 'all') {
             $courses = Course::where('exam_type', $exam_type)->paginate(5);
         } else {
-            $courses = Course::where(['exam_type' => $exam_type, 'subject' => $subject])->paginate(5);
+            $courses = Course::where(['exam_type' => $exam_type, 'subject_id' => $subject])->paginate(5);
         }
 
-        $subjects = [
-            'все предметы', 'биология', 'базовая математика', 'русский язык',
-            'английский язык', 'химия', 'литература', 'история', 'физика',
-            'информатика', 'профильная математика', 'география', 'обществознание'
-        ];
+        $subjects = Subject::all();
 
         return view('courses.index', [
             'courses' => $courses,
