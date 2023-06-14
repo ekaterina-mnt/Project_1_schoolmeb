@@ -6,7 +6,7 @@
 
 @section('sub-header')
 <div class="sub-header">
-    <h1>открытый вебинар {{ $vebinar->title }}</h1>
+  <h1>открытый вебинар {{ $vebinar->title }}</h1>
 </div>
 @endsection
 
@@ -23,28 +23,34 @@
 </div>
 
 <h1>Комментарии</h1>
-<div>
+<div class="comment-form">
   <form method="POST" action="{{ route('comment', $vebinar->id) }}">
     @csrf
 
     <input type="hidden" name="open_vebinar_id" value="{{ $vebinar->id }}">
     <input type="hidden" name="user_id" value="{{ auth()->id() }}">
-    <textarea name="text" placeholder="Напишите свой комментарий">Все отлично! Потом убрать</textarea>
+    <textarea name="text" placeholder="введите комментарий"></textarea>
 
     @error('text')
-    {{ $message }}
+    <p class="form-error">{{ $message }}</p>
     @enderror
 
-    <button type="submit">Оставить комментарий</button>
+    <p><button class="auth-login add-comment" type="submit">оставить комментарий</button></p>
   </form>
 </div>
-@foreach($vebinar->comments as $comment)
-<p>
-  {{ $comment->user->name }}
-  <br>
-  {{ $comment->text }}
-</p>
-@endforeach
+
+@if ($vebinar->comments->isEmpty())
+<p>Нет еще ни одного комментария.</p>
+@else
+<div class="comment-body">
+  <hr>
+  @foreach($vebinar->comments as $comment)
+  <p class="name">{{ $comment->user->name }}</p>
+  <p class="text">{{ $comment->text }}</p>
+  <hr>
+  @endforeach
+</div>
+@endif
 
 <script src="{{ asset('/app.js') }}"></script>
 @endsection

@@ -40,7 +40,7 @@ class AuthController extends Controller
             auth("web")->login($user);
         }
 
-        return redirect(route('welcome'));
+        return redirect(route('welcome'))->with('flash', 'Вы успешно зарегистрировались!');
     }
 
     public function logout()
@@ -61,7 +61,7 @@ class AuthController extends Controller
             return redirect(route('welcome'));
         }
 
-        return redirect(route('login'))->withErrors(["password" => 'Пользователь не найден, либо неверно введены данные.']);
+        return redirect(route('login'))->withErrors(["password" => 'пользователь не найден, либо неверно введены данные']);
     }
 
     public function showForgotForm()
