@@ -71,6 +71,28 @@ header li {
     line-height: 20px;
 }
 
+/* ГЛАВНАЯ СТРАНИЦА */
+
+img.welcome-1 {
+    width: 500px;
+    border-radius: 0 10px 10px 0;
+}
+
+.welcome-block {
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.welcome-block p {
+    padding: 20px;
+}
+
+p.padding-centre {
+    padding-top: 100px;
+}
+
 /* КНОПКИ */
 
 button.border {
