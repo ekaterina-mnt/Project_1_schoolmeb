@@ -15,7 +15,7 @@
             </form>
             </p>
         </div>
-        <img class="welcome-1" src="{{ 'storage/welcome/welcome_1.jpeg' }}">
+        <img class="welcome-1" src="{{ asset('storage/welcome/welcome_1.jpeg') }}">
     </div>
     <div class="welcome-block">
         <p>
