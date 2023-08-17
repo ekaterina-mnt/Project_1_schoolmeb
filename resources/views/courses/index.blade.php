@@ -66,7 +66,7 @@
         </div>
     </div>
 
-    <input class="filter-find" type="submit" value="Найти">
+    <input class="filter-find" type="submit" value="найти">
 </form>
 
 @endsection
@@ -74,7 +74,7 @@
 
 @section('content')
 
-<img class="courses-banner" src="{{ '/storage/courses/banner.png' }}">
+<img class="courses-banner" src="{{ asset('/storage/courses/banner.png') }}">
 
 @if ($courses->isEmpty())
 

@@ -10,6 +10,8 @@
 
 @section('content')
 
+<script src="app.js"></script>
+
 <div class="vebinars-wrap">
     @foreach ($vebinars as $vebinar)
     <a href="{{ route('openvebinars.show', $vebinar->id) }}">
