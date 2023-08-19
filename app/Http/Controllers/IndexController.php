@@ -21,8 +21,8 @@ class IndexController extends Controller
 
     public function contact_form_process(ContactFormRequest $request)
     {
-        Mail::to('ekaterina22.03@rambler.ru')->send(new ContactForm($request->validated()));
-
+        Mail::to('noreply@schoolmeb.st8.ru')->send(new ContactForm($request->validated()));
+        
         return redirect('/')->with('flash', 'Данные отправлены успешно, мы скоро свяжемся с Вами!');
     }
 }
